@@ -27,23 +27,23 @@ resource "aws_route" "gcp" {
 }
 
 # Allow inbound access to VPC resources from GCP CIDR
-resource "aws_security_group_rule" "google_ingress_vpn" {
-  type        = "ingress"
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["${var.gcp_cidr}"]
-
-  security_group_id = "${var.aws_sg}"
-}
-
-# Allow outbound access from VPC resources to GCP CIDR
-resource "aws_security_group_rule" "google_egress_vpn" {
-  type        = "egress"
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["${var.gcp_cidr}"]
-
-  security_group_id = "${var.aws_sg}"
-}
+# resource "aws_security_group_rule" "google_ingress_vpn" {
+#   type        = "ingress"
+#   from_port   = 0
+#   to_port     = 0
+#   protocol    = "-1"
+#   cidr_blocks = ["${var.gcp_cidr}"]
+# 
+#   security_group_id = "${var.aws_sg}"
+# }
+# 
+# # Allow outbound access from VPC resources to GCP CIDR
+# resource "aws_security_group_rule" "google_egress_vpn" {
+#   type        = "egress"
+#   from_port   = 0
+#   to_port     = 0
+#   protocol    = "-1"
+#   cidr_blocks = ["${var.gcp_cidr}"]
+# 
+#   security_group_id = "${var.aws_sg}"
+# }
